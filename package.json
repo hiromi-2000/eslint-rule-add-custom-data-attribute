@@ -1,7 +1,7 @@
 {
-  "name": "eslint-plugin-react-data-attribute",
+  "name": "eslint-plugin-react-component-tracker",
   "version": "1.0.0",
-  "description": "ESLint plugin for automatically adding custom data attributes to React components",
+  "description": "ESLint plugin for automatically adding component tracking attributes to React elements for analytics and testing",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -23,17 +23,19 @@
     "react",
     "jsx",
     "tsx",
-    "data-attribute",
-    "data-component-name",
+    "component-tracker",
+    "analytics",
+    "google-analytics",
     "testing",
-    "accessibility",
-    "component-tracking"
+    "e2e-testing",
+    "component-tracking",
+    "data-attributes"
   ],
   "author": "Your Name",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/eslint-plugin-react-data-attribute.git"
+    "url": "https://github.com/hiromi-2000/eslint-plugin-react-component-tracker.git"
   },
   "files": [
     "lib/",

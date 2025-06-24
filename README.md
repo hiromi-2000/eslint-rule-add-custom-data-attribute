@@ -1,8 +1,8 @@
-# eslint-plugin-react-data-attribute
+# eslint-plugin-react-component-tracker
 
-🎯 **React専用ESLintプラグイン** - GAデータ収集とテストに最適化されたdata属性を自動付与
+🎯 **React専用ESLintプラグイン** - GAデータ収集とテストに最適化されたコンポーネント追跡属性を自動付与
 
-[![npm version](https://badge.fury.io/js/eslint-plugin-react-data-attribute.svg)](https://www.npmjs.com/package/eslint-plugin-react-data-attribute)
+[![npm version](https://badge.fury.io/js/eslint-plugin-react-component-tracker.svg)](https://www.npmjs.com/package/eslint-plugin-react-component-tracker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 🎯 概要
@@ -24,7 +24,7 @@
 ## 📦 インストール
 
 ```bash
-npm install --save-dev eslint-plugin-react-data-attribute
+npm install --save-dev eslint-plugin-react-component-tracker
 ```
 
 ### 🔧 対応環境
@@ -39,15 +39,15 @@ npm install --save-dev eslint-plugin-react-data-attribute
 
 ```javascript
 // eslint.config.js
-import reactDataAttribute from 'eslint-plugin-react-data-attribute';
+import reactComponentTracker from 'eslint-plugin-react-component-tracker';
 
 export default [
   {
     plugins: {
-      'react-data-attribute': reactDataAttribute,
+      'react-component-tracker': reactComponentTracker,
     },
     rules: {
-      'react-data-attribute/add-component-data-attribute': 'error',
+      'react-component-tracker/add-component-data-attribute': 'error',
     },
   },
 ];
@@ -58,9 +58,9 @@ export default [
 ```javascript
 // .eslintrc.js
 module.exports = {
-  plugins: ['react-data-attribute'],
+  plugins: ['react-component-tracker'],
   rules: {
-    'react-data-attribute/add-component-data-attribute': 'error',
+    'react-component-tracker/add-component-data-attribute': 'error',
   },
 };
 ```
@@ -101,7 +101,7 @@ function LoginForm() {
 
 ```javascript
 {
-  "react-data-attribute/add-component-data-attribute": [
+  "react-component-tracker/add-component-data-attribute": [
     "error",
     {
       "attributeName": "data-component-name",
@@ -126,7 +126,7 @@ function LoginForm() {
 
 ```javascript
 {
-  "react-data-attribute/add-component-data-attribute": [
+  "react-component-tracker/add-component-data-attribute": [
     "error",
     {
       "attributeName": "data-ga-component",
@@ -140,7 +140,7 @@ function LoginForm() {
 
 ```javascript
 {
-  "react-data-attribute/add-component-data-attribute": [
+  "react-component-tracker/add-component-data-attribute": [
     "error",
     {
       "attributeName": "data-testid",
@@ -154,7 +154,7 @@ function LoginForm() {
 
 ```javascript
 {
-  "react-data-attribute/add-component-data-attribute": [
+  "react-component-tracker/add-component-data-attribute": [
     "error",
     {
       "includeAllElements": true,  // Button, Input等のカスタムコンポーネントも対象
@@ -215,8 +215,8 @@ GAデータ収集に最適化された要素のみを対象：
 
 ```bash
 # リポジトリのクローン
-git clone https://github.com/yourusername/eslint-plugin-react-data-attribute.git
-cd eslint-plugin-react-data-attribute
+git clone https://github.com/hiromi-2000/eslint-plugin-react-component-tracker.git
+cd eslint-plugin-react-component-tracker
 
 # 依存関係のインストール
 npm install
