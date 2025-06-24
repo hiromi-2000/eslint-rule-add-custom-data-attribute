@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-react-component-tracker",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "ESLint plugin for automatically adding component tracking attributes to React elements for analytics and testing",
   "type": "module",
   "main": "lib/index.js",
