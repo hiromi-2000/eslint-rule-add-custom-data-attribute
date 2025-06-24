@@ -1,0 +1,1 @@
+# eslint-rule-add-custom-data-attribute
