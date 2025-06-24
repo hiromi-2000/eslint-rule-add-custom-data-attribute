@@ -86,9 +86,13 @@ temp/
 # Editor directories and files
 .vscode/
 .idea/
+.cursor/
 *.swp
 *.swo
 *~
+
+# Project planning files (keep local only)
+RELEASE_PLAN.md
 
 # OS generated files
 .DS_Store
