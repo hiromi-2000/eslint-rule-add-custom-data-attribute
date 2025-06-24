@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2024-12-21
+
+### Changed
+- **Repository Cleanup**: Removed development files from public repository
+  - RELEASE_PLAN.md now kept local only
+  - .cursor/ directory excluded from repository
+  - Updated .gitignore for better development experience
+- **Release Workflow**: Enhanced automated release process
+  - Added NPM_TOKEN validation with helpful error messages
+  - Improved GitHub Release creation
+  - Added production environment for better security
+
 ## [1.1.0] - 2024-12-21
 
 ### Added
@@ -51,6 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Modern Tooling**: Built with Vite, tested with Vitest, supports latest ESLint versions
 - **Production Ready**: Published to npm with full TypeScript support and comprehensive documentation
 
-[Unreleased]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/releases/tag/v1.0.0 
