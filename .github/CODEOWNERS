@@ -1,0 +1,24 @@
+# Global owners
+* @hiromi-2000
+
+# Package configuration
+package.json @hiromi-2000
+package-lock.json @hiromi-2000
+
+# ESLint rule implementation
+/lib/ @hiromi-2000
+
+# Tests
+/tests/ @hiromi-2000
+
+# Documentation
+README.md @hiromi-2000
+RELEASE_PLAN.md @hiromi-2000
+
+# GitHub configuration
+/.github/ @hiromi-2000
+
+# Build and configuration
+vite.config.js @hiromi-2000
+eslint.config.js @hiromi-2000
+renovate.json @hiromi-2000 

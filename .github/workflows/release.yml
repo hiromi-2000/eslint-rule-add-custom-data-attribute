@@ -1,0 +1,83 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run tests
+      run: npm test
+
+    - name: Run lint
+      run: npm run lint
+
+    - name: Run build
+      run: npm run build
+
+    - name: Publish to npm
+      run: npm publish --provenance
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Generate changelog
+      id: changelog
+      run: |
+        # 前のタグを取得
+        PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD~1 2>/dev/null || echo "")
+        if [ -z "$PREVIOUS_TAG" ]; then
+          PREVIOUS_TAG=$(git rev-list --max-parents=0 HEAD)
+        fi
+        
+        # 変更ログを生成
+        echo "## Changes" > CHANGELOG_TEMP.md
+        git log --pretty=format:"- %s (%h)" $PREVIOUS_TAG..HEAD >> CHANGELOG_TEMP.md
+        
+        # 出力用に改行文字をエスケープ
+        CHANGELOG_CONTENT=$(cat CHANGELOG_TEMP.md | sed ':a;N;$!ba;s/\n/\\n/g')
+        echo "changelog=$CHANGELOG_CONTENT" >> $GITHUB_OUTPUT
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          # Release ${{ github.ref }}
+          
+          ${{ steps.changelog.outputs.changelog }}
+          
+          ## Installation
+          ```bash
+          npm install eslint-plugin-react-component-tracker
+          ```
+          
+          ## Package Info
+          - Package: [eslint-plugin-react-component-tracker](https://www.npmjs.com/package/eslint-plugin-react-component-tracker)
+          - Size: Check on [Bundlephobia](https://bundlephobia.com/package/eslint-plugin-react-component-tracker)
+        draft: false
+        prerelease: false 

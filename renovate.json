@@ -1,0 +1,77 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":enableVulnerabilityAlertsWithLabel(security)"
+  ],
+  "schedule": ["before 10am on monday"],
+  "timezone": "Asia/Tokyo",
+  "labels": ["dependencies"],
+  "assignees": ["hiromi-2000"],
+  "reviewers": ["hiromi-2000"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true,
+      "automergeType": "pr",
+      "labels": ["automerge", "dependencies", "dev-dependencies"]
+    },
+    {
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "pr",
+      "labels": ["automerge", "dependencies", "patch"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "automerge": true,
+      "automergeType": "pr",
+      "minimumReleaseAge": "3 days",
+      "labels": ["automerge", "dependencies", "minor"]
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["dependencies", "major", "review-required"],
+      "reviewersFromCodeOwners": true
+    },
+    {
+      "matchPackageNames": ["eslint"],
+      "automerge": false,
+      "labels": ["dependencies", "eslint", "review-required"],
+      "reviewersFromCodeOwners": true
+    },
+    {
+      "matchPackagePatterns": ["^@types/"],
+      "automerge": true,
+      "automergeType": "pr",
+      "labels": ["automerge", "dependencies", "types"]
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "enabled": false
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security", "vulnerability"],
+    "assignees": ["hiromi-2000"],
+    "reviewers": ["hiromi-2000"],
+    "automerge": false
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr",
+    "schedule": ["before 10am on monday"],
+    "labels": ["dependencies", "lock-file-maintenance"]
+  },
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps",
+  "commitMessagePrefix": "⬆️ ",
+  "prTitle": "⬆️ {{semanticCommitType}}{{#if semanticCommitScope}}({{semanticCommitScope}}){{/if}}: {{title}}",
+  "prBodyTemplate": "This PR contains the following updates:\n\n| Package | Change | Age | Adoption | Passing | Confidence |\n|---|---|---|---|---|---|\n{{#each upgrades as |upgrade|}}\n|{{upgrade.depName}}|{{#if upgrade.displayFrom}}`{{upgrade.displayFrom}}` -> {{/if}}{{#if upgrade.displayTo}}`{{upgrade.displayTo}}`{{/if}}|[![age](https://developer.mend.io/api/mc/badges/age/{{upgrade.datasource}}/{{upgrade.depName}}/{{upgrade.newVersion}}?slim=true)](https://docs.renovatebot.com/merge-confidence/)|[![adoption](https://developer.mend.io/api/mc/badges/adoption/{{upgrade.datasource}}/{{upgrade.depName}}/{{upgrade.newVersion}}?slim=true)](https://docs.renovatebot.com/merge-confidence/)|[![passing](https://developer.mend.io/api/mc/badges/compatibility/{{upgrade.datasource}}/{{upgrade.depName}}/{{upgrade.displayFrom}}/{{upgrade.newVersion}}?slim=true)](https://docs.renovatebot.com/merge-confidence/)|[![confidence](https://developer.mend.io/api/mc/badges/confidence/{{upgrade.datasource}}/{{upgrade.depName}}/{{upgrade.displayFrom}}/{{upgrade.newVersion}}?slim=true)](https://docs.renovatebot.com/merge-confidence/)|\n{{/each}}\n\n---\n\n### Configuration\n\n📅 **Schedule**: {{schedule}}\n\n🚦 **Automerge**: {{#if automerge}}Enabled{{else}}Disabled{{/if}}\n\n♻ **Rebasing**: {{#if rebaseWhen}}{{rebaseWhen}}{{else}}Disabled{{/if}}\n\n🔕 **Ignore**: Close this PR and you won't be reminded about {{#if isSingleUpdate}}this update{{else}}these updates{{/if}} again.\n\n---\n\n{{#if hasReleaseNotes}}\n{{#each upgrades as |upgrade|}}\n{{#if upgrade.hasReleaseNotes}}\n### Release Notes\n\n{{upgrade.releaseNotes}}\n{{/if}}\n{{/each}}\n{{/if}}"
+}
