@@ -1,0 +1,58 @@
+{
+  "name": "eslint-plugin-react-data-attribute",
+  "version": "1.0.0",
+  "description": "ESLint plugin for automatically adding custom data attributes to React components",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "build": "vite build",
+    "lint": "eslint lib/ tests/",
+    "prepack": "npm run build && npm test && npm run lint",
+    "dev": "vite build --watch"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "react",
+    "jsx",
+    "tsx",
+    "data-attribute",
+    "data-component-name",
+    "testing",
+    "accessibility",
+    "component-tracking"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/eslint-plugin-react-data-attribute.git"
+  },
+  "files": [
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/eslint-parser": "^7.27.5",
+    "@babel/preset-react": "^7.27.1",
+    "@vitest/ui": "^3.2.4",
+    "eslint": "^9.29.0",
+    "vite": "^7.0.0",
+    "vitest": "^3.2.4"
+  }
+}

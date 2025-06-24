@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+[RELEASE_PLAN.md](mdc:RELEASE_PLAN.md)
+このファイルを常に読み込むようにしてください。
+またRELEASE_PLANの目標を達成したらチェックマークをつけるようにしてください。
