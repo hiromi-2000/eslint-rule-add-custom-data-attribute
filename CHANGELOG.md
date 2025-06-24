@@ -7,11 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-12-21
+
 ### Added
-- GitHub Actions CI/CD workflow
-- Renovate configuration for dependency management
-- Issue and PR templates
-- Code owners configuration
+- **CI/CD Automation**: GitHub Actions workflow for automated testing and releases
+  - Multi-Node.js version testing (18, 20, 22)
+  - Automated npm publishing on tag creation
+  - Security audit integration
+  - Automated GitHub Releases creation
+- **Dependency Management**: Renovate configuration for automated dependency updates
+  - Smart auto-merge for patch and minor updates
+  - Manual review required for major updates
+  - Security vulnerability prioritization
+  - Japanese timezone scheduling
+- **Project Governance**: Enhanced collaboration tools
+  - Issue templates for bug reports and feature requests
+  - Pull request template with comprehensive checklist
+  - CODEOWNERS file for code review requirements
+  - CONTRIBUTING.md with detailed development guidelines
+- **Documentation**: Improved project documentation
+  - CHANGELOG.md following Keep a Changelog format
+  - Comprehensive development and contribution guides
 
 ## [1.0.0] - 2024-12-21
 
@@ -35,5 +51,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Modern Tooling**: Built with Vite, tested with Vitest, supports latest ESLint versions
 - **Production Ready**: Published to npm with full TypeScript support and comprehensive documentation
 
-[Unreleased]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/hiromi-2000/eslint-plugin-react-component-tracker/releases/tag/v1.0.0 
